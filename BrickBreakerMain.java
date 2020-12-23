@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  *
  * @author Tunkis
  */
-public class PingPongMain {
+public class BrickBreaker {
 
     /**
      * @param args the command line arguments
