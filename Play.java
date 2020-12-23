@@ -30,6 +30,7 @@ public class Play extends JPanel implements ActionListener, KeyListener {
     private int ballx = 220, balldirX = 1;
     private int bally = 300, balldirY = -2;
     private int totalbrick = 66;
+    public int Score=0;
 
     public Play() {
         map = new bricks(8, 16);
@@ -48,6 +49,9 @@ public class Play extends JPanel implements ActionListener, KeyListener {
         //pardel
         g.setColor(Color.red);
         g.fillRect(Padel, 440, 70, 6);
+        
+         //Keeping scores
+        g.drawString("Score: "+Score,10, 460);
         //ball
         g.setColor(Color.blue);
         g.fillOval(ballx, bally, 10, 10);
@@ -73,6 +77,21 @@ public class Play extends JPanel implements ActionListener, KeyListener {
                         if(bricks.intersects(ball)){
                         map.setbricks(0, i, j);
                         totalbrick--;
+                            
+                            Score++;
+                            switch (Score) {
+                                case 10:
+                                    delay++;
+                                    break;
+                                case 20:
+                                    delay++;
+                                    break;
+                                case 30:
+                                    delay++;
+                                    break;
+                                default:
+                                    break;
+                            }
                         
                         if (ballx + 30 <= bricks.x || i * map.brickwidth + 20 >= bricks.x + bricks.width) {
                                 balldirX = -balldirX;
